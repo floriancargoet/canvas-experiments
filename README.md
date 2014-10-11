@@ -1,4 +1,4 @@
 canvas-experiments
 ==================
 
-[Interactive square art](http://floriancargoet.com/squares/)
+[Rotate, zoom, repeat](http://floriancargoet.com/rotate-zoom-repeat/)
