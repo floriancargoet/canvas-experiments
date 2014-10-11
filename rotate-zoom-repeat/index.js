@@ -48,7 +48,7 @@
 
 
   var gui = new dat.GUI();
-  gui.add(params, 'shape', ['square', 'triangle']).listen().onChange(draw);
+  gui.add(params, 'shape', ['square', 'triangle', 'ellipse']).listen().onChange(draw);
   gui.add(params, 'angle',  0, 90, 0.1).listen().onChange(draw);
   gui.add(params, 'zoom',  50, 99, 0.1).listen().onChange(draw);
 
@@ -109,16 +109,23 @@
   }
 
   draw.square = function (a) {
-      ctx.fillRect(-a, -a, 2 * a, 2 * a);
+    ctx.fillRect(-a, -a, 2 * a, 2 * a);
   };
 
   draw.triangle = function (a) {
-      ctx.beginPath();
-      ctx.moveTo(0, a);
-      ctx.lineTo( Math.sqrt(3) * a / 2, -a/2);
-      ctx.lineTo(-Math.sqrt(3) * a / 2, -a/2);
-      ctx.closePath();
-      ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(0, a);
+    ctx.lineTo( Math.sqrt(3) * a / 2, -a / 2);
+    ctx.lineTo(-Math.sqrt(3) * a / 2, -a / 2);
+    ctx.closePath();
+    ctx.fill();
+  };
+
+  draw.ellipse = function (a) {
+    ctx.beginPath();
+    ctx.ellipse(0, 0, a, 0.8 * a, 0, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
   };
 
   // initial rendering
